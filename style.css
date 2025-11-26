@@ -54,7 +54,7 @@ header p {
     margin-bottom: 30px;
 }
 
-/* ★★★ 画像タグのスタイル ★★★ */
+/* プロフィール画像タグのスタイル */
 header img {
     display: block;
     margin: 20px auto 40px auto; /* 上下にスペースを確保して中央寄せ */
@@ -85,14 +85,15 @@ h2 {
 dl {
     display: grid;
     grid-template-columns: 200px 1fr; 
-    border: 1px solid #333a46;
+    gap: 1px; /* わずかな線を入れるための隙間 */
+    background-color: #333a46; 
     border-radius: 8px;
     overflow: hidden;
 }
 
 dt {
-    /* 項目名（左側）：背景を強調 */
-    color: #a0a6b1; 
+    /* 項目名（左側）：ラベルの強調 */
+    color: #f0f0f0;
     background-color: #1a1e24; 
     font-weight: 600;
     padding: 12px 15px;
@@ -143,4 +144,23 @@ hr {
     height: 2px;
     background-image: linear-gradient(to right, #00F2FF, #FF00A2, #00F2FF); /* 派手なトリコロールグラデーション */
     margin: 50px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #5d6773;
+    font-size: 0.8em;
+    margin-top: 40px;
+}
+
+/* h1にアニメーションを適用 (派手さの演出) */
+@keyframes neon-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; box-shadow: 0 0 15px #39ff14; }
+    100% { opacity: 1; }
+}
+
+header h1 {
+    animation: neon-pulse 3s infinite alternate;
 }
