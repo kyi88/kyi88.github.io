@@ -1,12 +1,13 @@
 /* ======================================================= */
-/* 1. 全体の設定 (基盤/フォント) */
+/* 1. 全体の基盤設定 (リセットと背景) */
 /* ======================================================= */
 body {
-    /* 背景: 漆黒の背景に僅かなノイズ感を出すための複雑なグラデーション */
-    background-color: #000000;
-    background-image: repeating-linear-gradient(0deg, #111 0, #111 1px, transparent 1px, transparent 2px);
-    color: #f0f0f0; /* 全体文字色 */
-    font-family: 'Consolas', 'Courier New', monospace; /* コード感のあるフォント */
+    /* 宇宙空間をイメージさせる深みのある背景 */
+    background-color: #050A14; 
+    /* 背景に非常に薄いグリッドパターンを重ねる（複雑さの演出） */
+    background-image: repeating-linear-gradient(0deg, #101525 0, #101525 1px, transparent 1px, transparent 40px);
+    color: #E0F7FA; /* メインの文字色 (ライトシアン) */
+    font-family: 'Consolas', 'Courier New', monospace; /* コード/ターミナル風フォント */
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -16,85 +17,100 @@ main {
     max-width: 1000px;
     margin: 50px auto;
     padding: 40px;
-    background-color: rgba(10, 10, 20, 0.85); /* 半透明で深みのある背景 */
-    border: 1px solid #333;
-    border-radius: 1px; /* 角を鋭角にしてデジタルな印象に */
-    box-shadow: 0 0 50px rgba(0, 255, 255, 0.2); /* 全体にエレクトリックブルーの淡い光 */
+    background-color: rgba(16, 21, 33, 0.95); /* 半透明で深みのあるメイン背景 */
+    border: 1px solid #00F2FF20;
+    border-radius: 10px;
+    /* 複雑さ：多層的なシャドウで「浮遊感」と「ネオングロー」を演出 */
+    box-shadow: 
+        0 0 5px rgba(0, 242, 255, 0.4),  /* 弱いシアンのグロー */
+        0 0 20px rgba(255, 0, 162, 0.2), /* マゼンタの広い影 */
+        0 4px 30px rgba(0, 0, 0, 0.7);   /* 影の深さ */
 }
 
 /* ======================================================= */
-/* 2. タイポグラフィとネオングロー */
+/* 2. ヘッダーと画像 (新規追加部分のスタイル) */
 /* ======================================================= */
+header {
+    text-align: center;
+    padding-bottom: 20px;
+}
 
 header h1 {
-    /* メインタイトル: エレクトリックな輝き */
+    /* メインタイトル: エレクトリック・シアン・ネオン */
     font-size: 3.5em;
-    color: #39ff14; /* ネオングリーン */
-    text-shadow: 0 0 7px #39ff14, 0 0 10px rgba(57, 255, 20, 0.8);
-    border-bottom: 2px solid #39ff14;
+    color: #00F2FF; 
+    text-shadow: 0 0 10px #00F2FF, 0 0 20px rgba(0, 242, 255, 0.7);
+    border-bottom: 3px double #00F2FF80; 
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: 2px;
 }
 
 header p {
     font-size: 1.2em;
-    color: #00ffc2;
+    color: #FF00A2; /* マゼンタで自己紹介文を強調 */
     font-style: italic;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
+/* ★★★ 画像タグのスタイル ★★★ */
+header img {
+    display: block;
+    margin: 20px auto 40px auto; /* 上下にスペースを確保して中央寄せ */
+    width: 280px; /* 指定値を維持 */
+    height: 280px;
+    border-radius: 50%; /* 完全な円形 */
+    object-fit: cover;
+    /* ネオン枠線 */
+    border: 3px solid #FF00A2;
+    box-shadow: 0 0 15px rgba(255, 0, 162, 0.8); /* 画像にマゼンタの光をまとう */
+}
+
+
+/* ======================================================= */
+/* 3. 情報リストの整理 (データターミナル) */
+/* ======================================================= */
+
 h2 {
-    /* セクション見出し: HUDのようなデザイン */
-    color: #00ffc2; 
+    color: #E0F7FA;
     font-size: 2em;
-    padding: 10px 0;
-    border-bottom: 1px solid #00ffc2;
+    border-left: 6px solid #00F2FF; /* シアンの強い縦線 */
+    padding-left: 15px;
     margin-top: 50px;
     margin-bottom: 25px;
 }
 
-h3 {
-    /* サブ見出し */
-    color: #f0f0f0;
-    font-size: 1.3em;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-left: 5px solid #ff00a2; /* マゼンタの縦線で強調 */
-    padding-left: 10px;
-}
-
-/* ======================================================= */
-/* 3. 情報リスト（データモジュール） */
-/* ======================================================= */
-
-/* 定義リスト（基本情報）のスタイルをグリッドで整理 */
+/* 定義リスト（基本情報）をデジタルなグリッドとして表現 */
 dl {
     display: grid;
-    grid-template-columns: 200px 1fr; /* 項目名と内容の幅を固定 */
-    gap: 1px; /* わずかな線を入れるための隙間 */
-    background-color: #333a46; 
+    grid-template-columns: 200px 1fr; 
+    border: 1px solid #333a46;
     border-radius: 8px;
     overflow: hidden;
 }
 
 dt {
-    /* 項目名（左側）：ラベルの強調 */
-    color: #f0f0f0;
-    background-color: #1a1e24; /* 最も暗い背景色 */
-    font-weight: 700;
-    padding: 12px;
+    /* 項目名（左側）：背景を強調 */
+    color: #a0a6b1; 
+    background-color: #1a1e24; 
+    font-weight: 600;
+    padding: 12px 15px;
     border-right: 1px solid #333a46;
 }
 
 dd {
-    /* 内容（右側）：データ表示 */
-    color: #39ff14; /* データをネオングリーンで表示 */
+    /* 内容（右側）：データをネオングリーンで表示し視認性を確保 */
+    color: #39ff14; 
     background-color: #262c33; 
-    padding: 12px;
+    padding: 12px 15px;
     margin-left: 0;
 }
 
-/* リスト（目標）のスタイルをモジュール化 */
+/* ======================================================= */
+/* 4. 目標リスト (インタラクティブなデータカード) */
+/* ======================================================= */
+
 ul {
     list-style: none;
     padding: 0;
@@ -104,30 +120,27 @@ ul li {
     background-color: #1a1e24; 
     padding: 15px;
     margin-bottom: 10px;
-    border-radius: 4px;
-    border-left: 4px solid #ff00a2; /* 派手なマゼンタのライン */
-    transition: all 0.3s ease-in-out;
-    box-shadow: inset 0 0 5px rgba(255, 0, 162, 0.3); /* 内部に光るシャドウ */
+    border-radius: 6px;
+    border-left: 4px solid #ff00a2; /* マゼンタのライン */
+    box-shadow: inset 0 0 5px rgba(0, 242, 255, 0.1); /* 内部の微かな光 */
+    transition: all 0.2s ease-in-out;
 }
 
-/* 複雑さを加えるホバーエフェクト */
+/* 複雑さと派手さを強調するホバーエフェクト */
 ul li:hover {
     background-color: #262c33;
-    transform: translateY(-3px); /* わずかに浮かび上がる */
-    box-shadow: 0 5px 15px rgba(255, 0, 162, 0.4), inset 0 0 10px #ff00a2; /* より強いマゼンタグロー */
+    transform: translateY(-3px); /* わずかに浮き上がる */
+    box-shadow: 0 5px 20px rgba(255, 0, 162, 0.4), inset 0 0 10px #00F2FF; /* 外側にマゼンタ、内側にシアンの光 */
     color: #fff;
+    cursor: pointer;
 }
 
 /* ======================================================= */
-/* 4. アニメーション（Optional: 派手さを強調） */
+/* 5. その他要素 */
 /* ======================================================= */
-@keyframes neon-pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.8; box-shadow: 0 0 10px #39ff14; }
-    100% { opacity: 1; }
-}
-
-/* h1にアニメーションを適用 */
-header h1 {
-    animation: neon-pulse 3s infinite alternate;
+hr {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #00F2FF, #FF00A2, #00F2FF); /* 派手なトリコロールグラデーション */
+    margin: 50px 0;
 }
