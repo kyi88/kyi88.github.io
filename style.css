@@ -1,124 +1,133 @@
 /* ======================================================= */
-/* 1. 全体の設定 (リセットとフォント) */
+/* 1. 全体の設定 (基盤/フォント) */
 /* ======================================================= */
 body {
-    /* 背景色を非常に暗いネイビーにして、デジタルな印象を出す */
-    background-color: #1a1e24; 
-    color: #e0e5ea; /* 文字色を薄いグレーにして、目に優しくする */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 背景: 漆黒の背景に僅かなノイズ感を出すための複雑なグラデーション */
+    background-color: #000000;
+    background-image: repeating-linear-gradient(0deg, #111 0, #111 1px, transparent 1px, transparent 2px);
+    color: #f0f0f0; /* 全体文字色 */
+    font-family: 'Consolas', 'Courier New', monospace; /* コード感のあるフォント */
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
 main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #262c33; /* メインコンテンツの背景を少し明るく */
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* 浮遊感のある影 */
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgba(10, 10, 20, 0.85); /* 半透明で深みのある背景 */
+    border: 1px solid #333;
+    border-radius: 1px; /* 角を鋭角にしてデジタルな印象に */
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.2); /* 全体にエレクトリックブルーの淡い光 */
 }
 
 /* ======================================================= */
-/* 2. タイポグラフィ (見出し) */
+/* 2. タイポグラフィとネオングロー */
 /* ======================================================= */
+
 header h1 {
-    font-size: 2.8em;
-    color: #4df4ff; /* シアン（水色）をアクセントカラーにする */
-    border-bottom: 2px solid #4df4ff80; /* 下線で区切る */
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    letter-spacing: 1px; /* 文字間隔を広げプロ感を出す */
+    /* メインタイトル: エレクトリックな輝き */
+    font-size: 3.5em;
+    color: #39ff14; /* ネオングリーン */
+    text-shadow: 0 0 7px #39ff14, 0 0 10px rgba(57, 255, 20, 0.8);
+    border-bottom: 2px solid #39ff14;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 header p {
-    font-size: 1.1em;
-    color: #a0a6b1;
-    margin-top: 0;
+    font-size: 1.2em;
+    color: #00ffc2;
     font-style: italic;
 }
 
 h2 {
-    color: #e0e5ea;
-    font-size: 1.8em;
-    border-left: 5px solid #4df4ff; /* 左側の縦線で区切る */
-    padding-left: 15px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    /* セクション見出し: HUDのようなデザイン */
+    color: #00ffc2; 
+    font-size: 2em;
+    padding: 10px 0;
+    border-bottom: 1px solid #00ffc2;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 h3 {
-    color: #b1b5bd;
-    font-size: 1.2em;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    /* サブ見出し */
+    color: #f0f0f0;
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-left: 5px solid #ff00a2; /* マゼンタの縦線で強調 */
+    padding-left: 10px;
 }
 
 /* ======================================================= */
-/* 3. 情報リストの整理 (dl, ul) */
+/* 3. 情報リスト（データモジュール） */
 /* ======================================================= */
 
-/* 定義リスト（基本情報）のスタイル */
+/* 定義リスト（基本情報）のスタイルをグリッドで整理 */
 dl {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    display: grid;
+    grid-template-columns: 200px 1fr; /* 項目名と内容の幅を固定 */
+    gap: 1px; /* わずかな線を入れるための隙間 */
+    background-color: #333a46; 
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 dt {
-    /* 項目名（左側）：強調色と太字 */
-    width: 150px;
-    color: #4df4ff; 
-    font-weight: 600;
-    padding: 10px 0;
-    border-bottom: 1px dashed #3a4552;
+    /* 項目名（左側）：ラベルの強調 */
+    color: #f0f0f0;
+    background-color: #1a1e24; /* 最も暗い背景色 */
+    font-weight: 700;
+    padding: 12px;
+    border-right: 1px solid #333a46;
 }
 
 dd {
-    /* 内容（右側） */
-    width: calc(100% - 150px);
-    color: #e0e5ea;
-    padding: 10px 0;
+    /* 内容（右側）：データ表示 */
+    color: #39ff14; /* データをネオングリーンで表示 */
+    background-color: #262c33; 
+    padding: 12px;
     margin-left: 0;
-    border-bottom: 1px dashed #3a4552;
 }
 
-/* リスト（職歴・目標）のスタイル */
+/* リスト（目標）のスタイルをモジュール化 */
 ul {
     list-style: none;
-    padding-left: 20px;
+    padding: 0;
 }
 
 ul li {
-    background-color: #333a46; /* アイテムごとに背景色を少し変える */
-    padding: 10px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    transition: background-color 0.3s;
+    background-color: #1a1e24; 
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #ff00a2; /* 派手なマゼンタのライン */
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 0 5px rgba(255, 0, 162, 0.3); /* 内部に光るシャドウ */
 }
 
-/* ホバーエフェクト（マウスが載ったとき） */
+/* 複雑さを加えるホバーエフェクト */
 ul li:hover {
-    background-color: #3a4552; 
-    color: #4df4ff; /* ホバー時に文字をアクセントカラーにする */
+    background-color: #262c33;
+    transform: translateY(-3px); /* わずかに浮かび上がる */
+    box-shadow: 0 5px 15px rgba(255, 0, 162, 0.4), inset 0 0 10px #ff00a2; /* より強いマゼンタグロー */
+    color: #fff;
 }
 
 /* ======================================================= */
-/* 4. その他 */
+/* 4. アニメーション（Optional: 派手さを強調） */
 /* ======================================================= */
-hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(77, 244, 255, 0), rgba(77, 244, 255, 0.75), rgba(77, 244, 255, 0));
-    margin: 30px 0;
+@keyframes neon-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; box-shadow: 0 0 10px #39ff14; }
+    100% { opacity: 1; }
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    color: #5d6773;
-    font-size: 0.8em;
-    margin-top: 40px;
+/* h1にアニメーションを適用 */
+header h1 {
+    animation: neon-pulse 3s infinite alternate;
 }
